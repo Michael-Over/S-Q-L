@@ -27,20 +27,20 @@ VALUES
 
 
 #used SELECT statment to order items by price
-select *
-from superstore
-order by price desc;
+SELECT *
+FROM superstore
+ORDER BY price desc;
 
 #used select statment to show cheapest item and stock
-select item_name,stock_quantity,price,min(price)
-from superstore
+SELECT item_name,stock_quantity,price,min(price)
+FROM superstore
 
 #show a statistic average rating for kitchen supplies
-select category,avg(average_rating)
-from superstore
-where category = 'Kitchen Supplies'
+SELECT category,avg(average_rating)
+FROM superstore
+WHERE category = 'Kitchen Supplies'
 
 #used select statment to find relevent info on item
-select *
-from superstore
-where item_name ='Smart Home Security Camera'
+SELECT *
+FROM superstore
+WHERE item_name ='Smart Home Security Camera'
