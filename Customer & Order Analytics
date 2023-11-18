@@ -1,0 +1,51 @@
+SELECT *
+FROM FebSales limit 5;
+
+SELECT *
+FROM customers limit 5;
+
+
+SELECT count(orderID)
+FROM JanSales
+where length (orderID)=6
+AND orderID<>'Order ID';
+
+SELECT count(orderID)
+FROM JanSales
+where Product='iPhone'
+
+SELECT orderID,acctnum
+FROM customers cust
+inner Join FebSales feb
+ON  feb.orderID=cust.order_id
+WHERE length (orderID) =6
+AND order_ID<>'Order ID';
+
+SELECT distinct product,min(price)
+FROM JanSales
+where length (orderID)=6
+AND orderID<>'Order ID'
+GROUP BY product,price
+ORDER BY Price;
+
+SELECT  product,sum(Quantity)*price as revenue
+FROM JanSales
+group by product,price
+
+
+SELECT product,SUM (quantity), SUM (quantity)*price as revenue
+FROM FebSales
+WHERE location ='548 Lincoln St, Seattle, WA 98101'
+GROUP BY product
+
+
+SELECT count( dinstinct acctnum) ,sum(quantity*price/278)
+FROM FebSales as feb
+ LEFT JOIN customers as cust
+on feb.orderID=cust.order_id
+where length (orderID)=6
+AND orderID<>'Order ID'
+AND Quantity>2
+
+
+
