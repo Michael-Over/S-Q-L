@@ -1,0 +1,36 @@
+
+5pop songs
+
+SELECT track_name,popularity
+FROM Spotifydata
+order by popularity desc
+LIMIT 5;
+
+most danceable/popular song
+
+SELECT track_name,MAX(popularity),max(danceability)
+FROM Spotifydata
+WHERE popularity>'90'
+AND danceability>'.80';
+
+
+avg danceable by artis
+
+SELECT artist_name,AVG(danceability)as danceability
+FROM Spotifydata
+GROUP BY artist_name;
+
+
+
+longest songs
+SELECT track_name,MAX(duration_ms)
+FROM Spotifydata;
+
+
+average dancelity for 10 most pop 
+
+SELECT avg(danceability)
+FROM Spotifydata
+ORDER BY popularity desc
+LIMIT 10 
+
