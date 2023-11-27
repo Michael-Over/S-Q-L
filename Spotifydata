@@ -34,3 +34,10 @@ FROM Spotifydata
 ORDER BY popularity desc
 LIMIT 10 
 
+WITH temptable as (
+SELECT artist_name,popularity
+FROM Spotifydata)
+SELECT Artist_name,avg(popularity) as average_popularity,'TOP STAR' AS tag
+FROM temptable
+GROUP BY artist_name
+Having avg(popularity)>=90
